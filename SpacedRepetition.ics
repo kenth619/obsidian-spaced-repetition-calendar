@@ -13,7 +13,7 @@ TZNAME:AST
 END:STANDARD
 END:VTIMEZONE
 BEGIN:VEVENT
-UID:ec8abef7-a7c2-4785-9e87-4ca8571bac0f@obsidian
+UID:169bee21-f03f-4d28-8a4e-0ad24c951671@obsidian
 SUMMARY:📚 Obsidian Review
 DESCRIPTION:Review cards from Revised - 12 Rules Learning to Code.md
 DTSTART;TZID=America/Puerto_Rico:20250725T163000
