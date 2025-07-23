@@ -1,4 +1,11 @@
 BEGIN:VCALENDAR
 VERSION:2.0
 PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+DESCRIPTION:Review cards from Revised - 12 Rules Learning to Code.md
+DURATION:PT30M
+DTSTART:20250725T090000Z
+SUMMARY:📚 Obsidian Review
+UID:209892e0-dafc-437d-9c9b-d11e274d9dc6@2098.org
+END:VEVENT
 END:VCALENDAR
