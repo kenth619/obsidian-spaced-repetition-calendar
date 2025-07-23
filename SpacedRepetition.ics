@@ -3,9 +3,9 @@ VERSION:2.0
 PRODID:ics.py - http://git.io/lLljaA
 BEGIN:VEVENT
 DESCRIPTION:Review cards from Revised - 12 Rules Learning to Code.md
-DURATION:PT30M
-DTSTART:20250725T090000Z
+DURATION:PT1H
+DTSTART:20250725T203000Z
 SUMMARY:📚 Obsidian Review
-UID:842d67bd-7d54-42b5-bd5d-50fefd0307e5@842d.org
+UID:51a5ffdd-92bb-4373-ac59-10fc5ece0c1b@51a5.org
 END:VEVENT
 END:VCALENDAR
