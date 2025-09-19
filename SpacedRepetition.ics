@@ -13,7 +13,7 @@ TZNAME:AST
 END:STANDARD
 END:VTIMEZONE
 BEGIN:VEVENT
-UID:f5581e1c-a223-40b0-8f6b-718bf93ff955@obsidian
+UID:223668c6-985a-4871-b1f5-bd85fb0ce1ca@obsidian
 SUMMARY:📚 Obsidian Review
 DESCRIPTION:Review cards from Revised - 12 Rules Learning to Code.md
 DTSTART;TZID=America/Puerto_Rico:20250816T163000
@@ -21,7 +21,7 @@ DTEND;TZID=America/Puerto_Rico:20250816T173000
 END:VEVENT
 
 BEGIN:VEVENT
-UID:27087fe0-9a3d-4861-95cc-5366b417f28e@obsidian
+UID:67844370-c5d8-4ea6-964a-adb6d366eed8@obsidian
 SUMMARY:📚 Obsidian Review
 DESCRIPTION:Review cards from Styling and Layout.md
 DTSTART;TZID=America/Puerto_Rico:20250820T163000
@@ -29,7 +29,7 @@ DTEND;TZID=America/Puerto_Rico:20250820T173000
 END:VEVENT
 
 BEGIN:VEVENT
-UID:8bb36422-7720-4e6a-bcb2-c6ea96d15311@obsidian
+UID:01b5c6c5-3a8a-4dd3-831b-8e62864eea32@obsidian
 SUMMARY:📚 Obsidian Review
 DESCRIPTION:Review cards from Web Foundations.md
 DTSTART;TZID=America/Puerto_Rico:20250826T163000
