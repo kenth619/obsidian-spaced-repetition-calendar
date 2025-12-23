@@ -13,7 +13,10 @@ GIT_COMMIT_MSG = "🔄 Auto-update spaced repetition calendar"
 # === GITHUB AUTH ===
 GITHUB_USERNAME = "kenth619"
 GITHUB_EMAIL = "kenth_619@hotmail.com"
-GITHUB_PAT = os.getenv("GITHUB_PAT")
+GITHUB_PAT = os.getenv("GITHUB_PAT")  # Loaded securely from environment
+if not GITHUB_PAT:
+    raise EnvironmentError("❌ GITHUB_PAT environment variable is not set.")
+
 REMOTE_NAME = "origin"
 SECURE_URL = f"https://{GITHUB_USERNAME}:{GITHUB_PAT}@github.com/{GITHUB_USERNAME}/obsidian-spaced-repetition-calendar.git"
 SAFE_URL = f"https://github.com/{GITHUB_USERNAME}/obsidian-spaced-repetition-calendar.git"
@@ -21,7 +24,7 @@ SAFE_URL = f"https://github.com/{GITHUB_USERNAME}/obsidian-spaced-repetition-cal
 # === CALENDAR SETTINGS ===
 YAML_SR_DUE_REGEX = r'^sr-due:\s*(\d{4}-\d{2}-\d{2})$'
 TIMEZONE_ID = "America/Puerto_Rico"
-EVENT_TIME = time(hour=16, minute=30)  # 4:30 PM local
+EVENT_TIME = time(hour=16, minute=30)  # 4:30 PM
 
 events = []
 file_count = 0
@@ -29,7 +32,7 @@ total_matches = 0
 
 print(f"\n📁 Scanning folder: {VAULT_PATH}\n")
 
-# === SCAN VAULT AND CREATE EVENTS ===
+# === SCAN MARKDOWN FILES ===
 for root, _, files in os.walk(VAULT_PATH):
     for file in files:
         if file.endswith(".md"):
@@ -61,7 +64,7 @@ END:VEVENT"""
                             events.append(vevent)
                             total_matches += 1
 
-# === BUILD CALENDAR CONTENT ===
+# === BUILD ICS FILE ===
 calendar_content = f"""BEGIN:VCALENDAR
 VERSION:2.0
 PRODID:-//Obsidian Spaced Repetition//EN
@@ -81,30 +84,30 @@ END:VTIMEZONE
 calendar_content += "\n\n".join(events)
 calendar_content += "\n\nEND:VCALENDAR"
 
-# === WRITE ICS FILE ===
+# === WRITE FILE ===
 with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
     f.write(calendar_content)
 
-# === PUSH TO GITHUB SAFELY ===
+# === PUSH TO GITHUB USING TOKEN ===
 def push_to_github():
     # Ensure commit identity
     subprocess.run(["git", "config", "user.name", GITHUB_USERNAME], cwd=REPO_PATH)
     subprocess.run(["git", "config", "user.email", GITHUB_EMAIL], cwd=REPO_PATH)
 
-    # Use secure URL with PAT for this operation
+    # Temporarily set URL with token
     subprocess.run(["git", "remote", "set-url", REMOTE_NAME, SECURE_URL], cwd=REPO_PATH)
 
-    # Stage and commit first to avoid "unstaged changes" error
+    # Stage & commit before pulling to avoid unstaged changes error
     subprocess.run(["git", "add", "SpacedRepetition.ics"], cwd=REPO_PATH)
     subprocess.run(["git", "commit", "-m", GIT_COMMIT_MSG], cwd=REPO_PATH)
 
-    # Pull remote changes with rebase to keep history clean
-    subprocess.run(["git", "pull", "--rebase"], cwd=REPO_PATH)
+    # Pull & rebase to stay synced
+    subprocess.run(["git", "pull", "--rebase", REMOTE_NAME, "main"], cwd=REPO_PATH)
 
-    # Push updates
+    # Push changes
     subprocess.run(["git", "push", REMOTE_NAME, "main"], cwd=REPO_PATH)
 
-    # Revert to safe URL without token
+    # Reset to safe URL without token
     subprocess.run(["git", "remote", "set-url", REMOTE_NAME, SAFE_URL], cwd=REPO_PATH)
 
 push_to_github()
