@@ -13,7 +13,7 @@ TZNAME:AST
 END:STANDARD
 END:VTIMEZONE
 BEGIN:VEVENT
-UID:fb08cc82-8d3a-4929-bf59-7d1e72df7cbd@obsidian
+UID:f333983f-35b0-4f3a-9ef9-a5e33763978b@obsidian
 SUMMARY:📚 Obsidian Review
 DESCRIPTION:Review cards from Styling and Layout.md
 DTSTART;TZID=America/Puerto_Rico:20251224T163000
@@ -21,11 +21,19 @@ DTEND;TZID=America/Puerto_Rico:20251224T173000
 END:VEVENT
 
 BEGIN:VEVENT
-UID:7a23bb18-dd7f-4869-ab41-b96b4178afa6@obsidian
+UID:f4126895-e0d2-4dda-a227-f8b96cb90758@obsidian
 SUMMARY:📚 Obsidian Review
 DESCRIPTION:Review cards from Web Foundations.md
 DTSTART;TZID=America/Puerto_Rico:20251224T163000
 DTEND;TZID=America/Puerto_Rico:20251224T173000
+END:VEVENT
+
+BEGIN:VEVENT
+UID:96f822a1-1b37-43c8-85aa-f647d4431950@obsidian
+SUMMARY:📚 Obsidian Review
+DESCRIPTION:Review cards from Work Planning and Scheduling Procedure.md
+DTSTART;TZID=America/Puerto_Rico:20260120T163000
+DTEND;TZID=America/Puerto_Rico:20260120T173000
 END:VEVENT
 
 END:VCALENDAR
